@@ -16,12 +16,28 @@ class DateObject {
         return JPN[weekday];
     }
 
-    weekday_en(weekday = this.day) {
+    weekday_jp_st1() {
+    	return this.weekday_jp(this.day).substring(0,1)
+    }
+    
+    weekday_jp_st2() {
+    	return this.weekday_jp(this.day).substring(0,2)
+    }
+    
+    weekday_jp_bkt() {
+    	return `(${this.weekday_jp_st1(this.day)})`
+    }
+
+     weekday_en(weekday = this.day) {
         let EN = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Saturday"];
         return EN[weekday];
     }
 
+    weekday_en_st() {
+    	return this.weekday_en(this.day).substring(0,3)
+    }
+
     L_pad_zero(value) {
-        return (Array(2).join("0") + value).slice(-2);
+        return value.toString().padStart(2,"0");
     }
 }
